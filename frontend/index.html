@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, initial-scale=1.0"
+      name="viewport"
+    />
+    <title>文件生成器</title>
+  </head>
+  <body>
+    <h3>文件生成器</h3>
+    <form
+      class="formContainer"
+      id="MainForm"
+      loading="false"
+    >
+      <label class="formItem">
+        <span class="formItemLabel">目标目录</span>
+        <div class="content">
+          <input
+            name="target"
+            required
+            title=""
+          />
+          <button
+            type="button"
+            id="SelectDir"
+          >
+            选择目录
+          </button>
+        </div>
+      </label>
+      <label class="formItem">
+        <span class="formItemLabel">文件名称</span>
+        <div class="content">
+          <input
+            name="name"
+            value="test_file"
+            required
+          />
+        </div>
+      </label>
+      <label class="formItem">
+        <span class="formItemLabel">起始文件序号</span>
+        <div class="content">
+          <input
+            name="start"
+            type="number"
+            min="0"
+            value="1"
+            required
+          />
+        </div>
+      </label>
+      <label class="formItem">
+        <span class="formItemLabel">生成数量</span>
+        <div class="content">
+          <input
+            name="total"
+            type="number"
+            min="1"
+            required
+          />
+          <span class="addon">个</span>
+        </div>
+      </label>
+      <label class="formItem">
+        <span class="formItemLabel">文件尺寸</span>
+        <div class="content">
+          <input
+            name="size"
+            type="number"
+            min="1"
+          />
+          <select
+            name="unit"
+            value="MB"
+          >
+            <option value="MB">MB</option>
+            <option value="KB">KB</option>
+            <option value="GB">GB</option>
+          </select>
+        </div>
+      </label>
+      <br />
+      <div>
+        <button
+          type="submit"
+          style="min-width: 120px"
+        >
+          开始生成
+        </button>
+      </div>
+      <div class="operateLinks">
+        <a onclick="javascript:window.openTargetDir()"> 打开目录 </a>
+      </div>
+      <div class="loading">
+        <div class="text">生成中...</div>
+        <progress
+          class="progress"
+          value="0"
+        ></progress>
+        <div class="msg"></div>
+      </div>
+    </form>
+    <div id="ResultContainer">
+      <img
+        src="src/assets/success.svg"
+        alt=""
+        width="140"
+      />
+      <div class="title">生成完成</div>
+      <div style="display: flex; gap: 16px">
+        <button class="cancel">返回</button>
+        <button
+          class="open"
+          onclick="javascript:window.openTargetDir()"
+        >
+          打开目录
+        </button>
+      </div>
+    </div>
+    <script
+      src="./src/main.ts"
+      type="module"
+    ></script>
+  </body>
+</html>
